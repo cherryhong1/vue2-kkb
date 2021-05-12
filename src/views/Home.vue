@@ -2,7 +2,7 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <Communication />
+    <Communication :title='title' :foo='foo' />
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   },
   data () {
     return {
-      title: '我是组父组件home'
+      title: '我是组父组件home',
+      foo: 'foo'
     }
   },
   components: {

@@ -1,12 +1,14 @@
 <template>
   <div ref="comminication">
     <p>{{ title }}</p>
+    <p>{{ $attrs }}</p>
     <comchild-1
       @onClickTitle="onClickTitle"
       :title="title"
       :content="content"
+      v-bind="$attrs"
     ></comchild-1>
-    <comchild-2 :msg="content" ref="child2"></comchild-2>
+    <comchild-2 :msg="content" ref="child2" v-bind="$attrs"></comchild-2>
   </div>
 </template>
 
@@ -15,6 +17,11 @@ import Comchild1 from '../components/Comchild1.vue'
 import Comchild2 from '../components/Comchild2.vue'
 export default {
   components: { Comchild1, Comchild2 },
+  props: {
+    title: {
+      type: String
+    }
+  },
   provide () {
     return {
       parent: this
@@ -22,7 +29,7 @@ export default {
   },
   data () {
     return {
-      title: '我是父组件',
+      // title: '我是父组件',
       content: '父子组件通信'
     }
   },

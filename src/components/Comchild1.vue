@@ -4,6 +4,7 @@
     <p class="content">{{ parent.content }}</p>
     <p>{{ grandParent.title }}</p>
     <p>{{ question }}</p>
+    <p>{{ $attrs.title}}</p>
     <button @click="grandParent.changeTitle">改变home组件的title</button>
   </div>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import Event from '@/utils/event'
 export default {
+  inheritAttrs: true,
   inject: ['parent', 'grandParent'],
   data () {
     return {

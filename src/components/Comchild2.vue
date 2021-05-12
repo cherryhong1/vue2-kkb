@@ -2,12 +2,16 @@
   <div class="child2">
     <p>子组件2</p>
     <p @click="send">{{msg}}</p>
+    <p>{{ $attrs }}</p>
+    <child-3 v-bind="$attrs"></child-3>
   </div>
 </template>
 
 <script>
 import Event from '@/utils/event'
+import Child3 from './Child3.vue'
 export default {
+  components: { Child3 },
   props: {
     msg: {
       type: String,
