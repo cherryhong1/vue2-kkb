@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="title">
+    <p class="title"  @click="onclick">
       <slot name="header" v-bind:headerSlot="headerSlot"></slot>
       <slot name="contain"></slot>
       <slot name="foot" v-bind:user="user">
@@ -23,6 +23,11 @@ export default {
         name: '头部插槽'
       }
 
+    }
+  },
+  methods: {
+    onclick () {
+      this.user.userName = 'hauhua'
     }
   }
 }

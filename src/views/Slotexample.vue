@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="title">{{ title }}</p>
+    <p class="title" >{{ title }}</p>
     <slot1>
       测试插槽
       <template v-slot:header="{ headerSlot }">
@@ -15,7 +15,7 @@
         </template>
       <template #foot="slotProps">
         <div class="foot">
-          <p>{{slotProps.userName}}</p>
+          <p>{{slotProps.user.userName}}</p>
           <p v-for="item in todo" :key="item.id">{{item.text}}</p>
         </div>
         </template>
@@ -39,6 +39,14 @@ export default {
         { id: 0, text: 'todo1' },
         { id: 1, text: 'todo2' }
       ]
+    }
+  },
+  mounted () {
+    this.$on('onclick')
+  },
+  methods: {
+    onclick () {
+      console.log(28)
     }
   }
 }
