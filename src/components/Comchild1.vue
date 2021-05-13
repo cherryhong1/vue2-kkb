@@ -27,8 +27,8 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$attrs)
-    console.log(this.$listeners)
+    // console.log(this.$attrs)
+    // console.log(this.$listeners)
     Event.$on('send', (sendTitle) => {
       this.question = sendTitle
     })
