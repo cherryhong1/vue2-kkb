@@ -22,6 +22,11 @@ const routes = [
     component: () => import('../views/Slotexample.vue')
   },
   {
+    path: '/eform',
+    name: 'Eform',
+    component: () => import('../components/EinputComponent/index.vue')
+  },
+  {
     path: '*',
     name: 'Nofound',
     component: () => import('../views/Nofound.vue')
