@@ -1,12 +1,12 @@
 <template>
   <div>
       <input :type="$attrs.type" :value="value" @input="onInput" :placeholder="$attrs.placeholder"  v-bind="$attrs">
-      <p>{{value}}</p>
   </div>
 </template>
 
 <script>
 export default {
+  inject: ['form'],
   props: {
     label: {
       type: String,
@@ -16,23 +16,18 @@ export default {
       type: String,
       require: true
     }
-    // placeholder: {
-    //   type: String,
-    //   default: '请输入'
-    // },
-    // type: {
-    //   type: String,
-    //   default: 'text'
-    // }
   },
   methods: {
     onInput (e) {
       this.$emit('input', e.target.value)
     }
+  },
+  created () {
+    console.log(this.form.rules)
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+input{padding: 10px;margin:10px}
 </style>

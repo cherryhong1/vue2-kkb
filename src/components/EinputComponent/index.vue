@@ -5,9 +5,8 @@
         <einput placeholder="请输入账号密码" v-model="mode.username"></einput>
       </eform-item>
       <eform-item label="密码" prop="password">
-        <einput type="password" v-model="mode.password"></einput>
+        <einput type="password" v-model="mode.password" placeholder="请输入密码"></einput>
       </eform-item>
-      <p>{{mode.username}}</p>
       <eform-item>
         <button @click="submit">登录</button>
       </eform-item>
@@ -25,20 +24,25 @@ export default {
     eformItem,
     eform
   },
-  provide () {
-    return {
-      eform: this
-    }
-  },
   data () {
     return {
       mode: {
-        username: '234',
+        username: '',
         password: ''
       },
       rules: {
-        username: [],
-        password: []
+        username: [{
+          required: true,
+          message: '请输入账号',
+          trigger: 'blur'
+        }],
+        password: [
+          {
+            required: true,
+            message: '请输入账号',
+            trigger: 'blur'
+          }
+        ]
       }
     }
   },

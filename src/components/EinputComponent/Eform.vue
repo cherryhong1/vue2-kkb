@@ -26,14 +26,11 @@ export default {
     }
   },
   methods: {
-    submit () {
-      console.log('提交')
-    },
-    cancel () {
-      console.log('')
-    }
+
+  },
+  created () {
   }
 }
 </script>
 
-<style></style>
+<style ></style>
