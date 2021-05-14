@@ -7,6 +7,7 @@
       <eform-item label="密码" prop="password">
         <einput type="password" v-model="mode.password"></einput>
       </eform-item>
+      <p>{{mode.username}}</p>
       <eform-item>
         <button @click="submit">登录</button>
       </eform-item>
@@ -32,7 +33,7 @@ export default {
   data () {
     return {
       mode: {
-        username: '',
+        username: '234',
         password: ''
       },
       rules: {

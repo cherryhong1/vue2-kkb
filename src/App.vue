@@ -5,8 +5,6 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/slot">Slot</router-link> |
       <router-link to="/eform">eform</router-link>
-
-      
     </div>
     <router-view />
   </div>

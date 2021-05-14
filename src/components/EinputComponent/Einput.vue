@@ -1,7 +1,7 @@
 <template>
   <div>
-      <input :type="type" :value="value" @input="onInput" :placeholder="placeholder"  v-bind="$attrs">
-
+      <input :type="$attrs.type" :value="value" @input="onInput" :placeholder="$attrs.placeholder"  v-bind="$attrs">
+      <p>{{value}}</p>
   </div>
 </template>
 
@@ -15,19 +15,19 @@ export default {
     value: {
       type: String,
       require: true
-    },
-    placeholder: {
-      type: String,
-      default: '请输入'
-    },
-    type: {
-      type: String,
-      default: 'text'
     }
+    // placeholder: {
+    //   type: String,
+    //   default: '请输入'
+    // },
+    // type: {
+    //   type: String,
+    //   default: 'text'
+    // }
   },
   methods: {
     onInput (e) {
-      this.$emit('onInput', e.target.value)
+      this.$emit('input', e.target.value)
     }
   }
 }
