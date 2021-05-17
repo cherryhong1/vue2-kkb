@@ -27,22 +27,29 @@ export default {
       validator: ''
     }
   },
-  created () {
-    console.log(11)
-    console.log(this.prop)
-    const rules = this.form[this.props]
-    console.log(rules)
-    const descriptor = {
-      rules
-    }
-    var validator = new Schema(descriptor)
-    const name = this.form[this.prop]
-    console.log(name)
-    validator.validate(name, (err) => {
-      if (err) {
-        console.log(err)
-      }
+  mounted () {
+    this.$on('validator', () => {
+      this.validator()
     })
+  },
+  methods: {
+    validate () {
+      if (this.prop) {
+        const rules = this.form.rules[this.prop]
+        const descriptor = {
+          [this.prop]: rules
+        }
+        var Schema2 = new Schema(descriptor)
+        const name = this.form.mode[this.prop]
+        Schema2.validate({ [this.prop]: name }, (err) => {
+          if (err) {
+            this.err = err[0].message
+          } else {
+            this.err = ''
+          }
+        })
+      }
+    }
   }
 }
 </script>

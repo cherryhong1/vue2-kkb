@@ -23,7 +23,7 @@ export default {
     }
   },
   created () {
-    console.log(this.form.rules)
+    // console.log(this.form.rules)
   }
 }
 </script>

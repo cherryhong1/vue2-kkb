@@ -39,7 +39,7 @@ export default {
         password: [
           {
             required: true,
-            message: '请输入账号',
+            message: '请输入密码',
             trigger: 'blur'
           }
         ]
@@ -48,8 +48,13 @@ export default {
   },
   methods: {
     submit () {
-      console.log('提交')
-      console.log(this.mode)
+      this.$refs.eform.validate((valid) => {
+        if (valid) {
+          console.log('提交成功')
+        } else {
+          console.log('提交失败')
+        }
+      })
     }
   }
 }

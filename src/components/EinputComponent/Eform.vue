@@ -26,9 +26,23 @@ export default {
     }
   },
   methods: {
+    validate (cb) {
+      const tasks = this.$children
+        .filter(item => item.prop) // 过滤掉没有prop属性的Item
+        .map(item => item.validate())
 
-  },
-  created () {
+      const flag = true
+      const flag2 = false
+      // 统一处理所有Promise结果
+      Promise.all(tasks)
+        .then(() => {
+          cb(flag)
+        })
+        .catch(() => {
+          cb(flag2)
+        })
+    }
+
   }
 }
 </script>
