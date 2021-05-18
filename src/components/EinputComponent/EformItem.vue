@@ -41,7 +41,7 @@ export default {
         }
         var Schema2 = new Schema(descriptor)
         const name = this.form.mode[this.prop]
-        Schema2.validate({ [this.prop]: name }, (err) => {
+        return Schema2.validate({ [this.prop]: name }, (err) => {
           if (err) {
             this.err = err[0].message
           } else {

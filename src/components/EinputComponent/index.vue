@@ -50,8 +50,10 @@ export default {
     submit () {
       this.$refs.eform.validate((valid) => {
         if (valid) {
+          alert('校验成功')
           console.log('提交成功')
         } else {
+          alert('校验失败')
           console.log('提交失败')
         }
       })

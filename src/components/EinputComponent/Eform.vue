@@ -30,7 +30,6 @@ export default {
       const tasks = this.$children
         .filter(item => item.prop) // 过滤掉没有prop属性的Item
         .map(item => item.validate())
-
       const flag = true
       const flag2 = false
       // 统一处理所有Promise结果
