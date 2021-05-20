@@ -1,11 +1,13 @@
 <template>
   <div v-if="isShow" class="notice">
-    <p class="title">
+    <!-- <p class="title">
       <slot name="title"></slot>
     </p>
     <p class="content">
       <slot name="content"></slot>
-    </p>
+    </p> -->
+    <p class="title">{{title}}</p>
+    <p class="content">{{content}}</p>
     <div class="shut" @click="shut">x</div>
   </div>
 </template>
