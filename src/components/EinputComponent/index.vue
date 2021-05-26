@@ -61,6 +61,7 @@ export default {
   methods: {
     submit () {
       this.$refs.eform.validate((valid) => {
+        console.log(valid)
         const notice = this.$create(Notice, {
           title: '搬砖啦',
           content: valid ? '校验通过' : '校验失败',

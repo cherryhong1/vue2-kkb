@@ -5,8 +5,10 @@
 </template>
 
 <script>
+import emitter from '../../mixin/emitter2'
 export default {
   inject: ['form'],
+  mixins: [emitter],
   props: {
     label: {
       type: String,
@@ -20,6 +22,8 @@ export default {
   methods: {
     onInput (e) {
       this.$emit('input', e.target.value)
+      // this.$parent.$emit('validate')
+      this.dispatch('EformItem', 'validate')
     }
   },
   created () {

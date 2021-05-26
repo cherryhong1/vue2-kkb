@@ -5,12 +5,16 @@
 </template>
 
 <script>
+import emitter from '../../mixin/emitter'
 export default {
+  name: 'Eform',
+  componentName: 'Eform',
   provide () {
     return {
       form: this
     }
   },
+  mixins: [emitter],
   props: {
     mode: {
       type: Object,
@@ -22,14 +26,26 @@ export default {
   },
   data () {
     return {
-
+      fields: []
     }
+  },
+  created () {
+    this.$on('addField', item => {
+      this.fields.push(item)
+    })
+    this.$on('removeField', item => {
+      console.log(item)
+      this.fields.splice(this.fields.indexof(item), 1)
+    })
   },
   methods: {
     validate (cb) {
-      const tasks = this.$children
-        .filter(item => item.prop) // 过滤掉没有prop属性的Item
-        .map(item => item.validate())
+      const tasks = this.fields.map(item => {
+        item.validate()
+      })
+      // const tasks = this.$children
+      //   .filter(item => item.prop) // 过滤掉没有prop属性的Item
+      //   .map(item => item.validate())
       const flag = true
       const flag2 = false
       // 统一处理所有Promise结果
