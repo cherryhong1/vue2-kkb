@@ -26,7 +26,7 @@
 import einput from './Einput'
 import eformItem from './EformItem'
 import eform from './Eform'
-import Notice from '../notice/index'
+// import Notice from '../notice/index'
 export default {
   components: {
     einput,
@@ -60,13 +60,20 @@ export default {
   },
   methods: {
     submit () {
+      this.$Plugin1(1, 2)
+      this.$Plugin2(3, 4)
       this.$refs.eform.validate((valid) => {
-        console.log(valid)
-        const notice = this.$create(Notice, {
+        console.log(this)
+        const notice = this.$notice({
           title: '搬砖啦',
           content: valid ? '校验通过' : '校验失败',
           duration: 5000
         })
+        // const notice = this.$create(Notice, {
+        //   title: '搬砖啦',
+        //   content: valid ? '校验通过' : '校验失败',
+        //   duration: 5000
+        // })
         notice.show()
         // if (valid) {
         //   this.content = '校验通过'
