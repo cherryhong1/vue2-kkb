@@ -12,6 +12,7 @@ var _store = _interopRequireDefault(require("./store"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+console.log(_krouter["default"]);
 _vue["default"].prototype.$bus = new _vue["default"]();
 _vue["default"].config.productionTip = false;
 _vue["default"].prototype.$create = _create["default"];

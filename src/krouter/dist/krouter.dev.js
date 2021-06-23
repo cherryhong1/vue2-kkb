@@ -18,10 +18,18 @@ var VueRouter = function VueRouter(options) {
 VueRouter.install = function (_Vue) {
   Vue = _Vue;
   Vue.mixin({
-    beforeCreated: function beforeCreated() {
+    beforeCreate: function beforeCreate() {
       console.log(this);
     }
-  });
+  }); // Vue.mixin({
+  //   beforeCreate () {
+  //     console.log(this)
+  //     // 此处this指的是组件实例
+  //     if (this.$options.router) {
+  //       Vue.prototype.$router = this.$options.router;
+  //     }
+  //   },
+  // });
 };
 
 var _default = VueRouter;

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from './krouter'
 import Home from '../views/Home.vue'
-
+console.log(VueRouter)
 Vue.use(VueRouter)
 
 const routes = [
